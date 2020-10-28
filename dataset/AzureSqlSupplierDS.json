@@ -1,0 +1,16 @@
+{
+	"name": "AzureSqlSupplierDS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSQLSupplierLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "@{item().name}"
+		}
+	}
+}
