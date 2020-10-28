@@ -38,11 +38,7 @@
 									"type": "ExcelSource",
 									"storeSettings": {
 										"type": "AzureBlobStorageReadSettings",
-										"recursive": true,
-										"wildcardFileName": {
-											"value": "@{item().name}",
-											"type": "Expression"
-										}
+										"recursive": true
 									}
 								},
 								"sink": {
@@ -61,7 +57,7 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "BlobSupplierDataset",
+									"referenceName": "SupplierDataset",
 									"type": "DatasetReference"
 								}
 							],
