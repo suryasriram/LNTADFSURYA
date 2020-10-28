@@ -1,0 +1,34 @@
+{
+	"name": "SupplierDataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobSupplierLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Sheet1",
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "Supply",
+				"container": "input"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": [
+			{
+				"name": "Sub Category",
+				"type": "String"
+			},
+			{
+				"name": "Sub Category ID",
+				"type": "String"
+			},
+			{
+				"name": "Category",
+				"type": "String"
+			}
+		]
+	}
+}

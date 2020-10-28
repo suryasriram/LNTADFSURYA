@@ -39,7 +39,10 @@
 									"storeSettings": {
 										"type": "AzureBlobStorageReadSettings",
 										"recursive": true,
-										"wildcardFileName": "@{item().name}"
+										"wildcardFileName": {
+											"value": "@{item().name}",
+											"type": "Expression"
+										}
 									}
 								},
 								"sink": {
@@ -93,7 +96,8 @@
 						"childItems"
 					],
 					"storeSettings": {
-						"type": "AzureBlobStorageReadSettings"
+						"type": "AzureBlobStorageReadSettings",
+						"recursive": true
 					}
 				}
 			}
