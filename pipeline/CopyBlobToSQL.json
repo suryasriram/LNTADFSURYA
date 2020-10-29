@@ -5,24 +5,17 @@
 			{
 				"name": "ForEachExcel",
 				"type": "ForEach",
-				"dependsOn": [
-					{
-						"activity": "Get Metadata",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
+				"dependsOn": [],
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Get Metadata').output.childItems",
+						"value": "@variables('SheetNames')",
 						"type": "Expression"
 					},
-					"isSequential": true,
+					"isSequential": false,
 					"activities": [
 						{
-							"name": "Copy data1",
+							"name": "Copy data",
 							"type": "Copy",
 							"dependsOn": [],
 							"policy": {
@@ -38,8 +31,7 @@
 									"type": "ExcelSource",
 									"storeSettings": {
 										"type": "AzureBlobStorageReadSettings",
-										"recursive": true,
-										"wildcardFileName": "@{item().name}"
+										"recursive": true
 									}
 								},
 								"sink": {
@@ -59,7 +51,13 @@
 							"inputs": [
 								{
 									"referenceName": "SupplierDataset",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"Sheetname": {
+											"value": "@item()",
+											"type": "Expression"
+										}
+									}
 								}
 							],
 							"outputs": [
@@ -71,34 +69,23 @@
 						}
 					]
 				}
-			},
-			{
-				"name": "Get Metadata",
-				"type": "GetMetadata",
-				"dependsOn": [],
-				"policy": {
-					"timeout": "7.00:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"dataset": {
-						"referenceName": "SupplierDataset",
-						"type": "DatasetReference"
-					},
-					"fieldList": [
-						"childItems"
-					],
-					"storeSettings": {
-						"type": "AzureBlobStorageReadSettings",
-						"recursive": true
-					}
-				}
 			}
 		],
+		"variables": {
+			"SheetNames": {
+				"type": "Array",
+				"defaultValue": [
+					"DefectType",
+					"Date",
+					"Vendor",
+					"Category",
+					"Plant",
+					"Metrics",
+					"MaterialType",
+					"Defect"
+				]
+			}
+		},
 		"annotations": []
 	}
 }

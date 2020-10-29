@@ -5,14 +5,18 @@
 			"referenceName": "AzureBlobSupplierLS",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"Sheetname": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "Excel",
 		"typeProperties": {
-			"sheetName": "Sheet1",
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"folderPath": "Supply",
-				"container": "input"
+				"fileName": "SupplyQualityAnalysis.xlsx",
+				"container": "inputdata"
 			},
 			"firstRowAsHeader": true
 		},
