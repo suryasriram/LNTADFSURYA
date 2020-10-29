@@ -5,8 +5,8 @@
 		"annotations": [],
 		"type": "AzureSqlDatabase",
 		"typeProperties": {
-			"connectionString": "integrated security=False;encrypt=True;connection timeout=30;data source=adfsrvr.database.windows.net;initial catalog=groupasqldb;user id=sqladmin",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkdST1VQQUFERl9iMjE3ZWE0MC1iNWMyLTRiNTEtYjRmZS02YzNjMzI0NTUzYTEiDQp9"
+			"connectionString": "integrated security=False;encrypt=True;connection timeout=30;data source=grpserver1.database.windows.net;initial catalog=groupdb;user id=sqladmin",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkdSUEFERl9jNzYyNzE2MS02NjM5LTQ1MmQtYjA4NC1kODhhZTRhZjE2NTEiDQp9"
 		}
 	}
 }
