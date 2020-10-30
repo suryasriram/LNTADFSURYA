@@ -21,7 +21,7 @@
 		},
 		"FileServer_properties_typeProperties_host": {
 			"type": "string",
-			"defaultValue": "D:\\"
+			"defaultValue": "C:\\Users\\shiv\\Downloads"
 		},
 		"FileServer_properties_typeProperties_userId": {
 			"type": "string",
