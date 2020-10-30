@@ -36,7 +36,7 @@
 								},
 								"sink": {
 									"type": "AzureSqlSink",
-									"preCopyScript": "delete from ",
+									"preCopyScript": "IF EXISTS (SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME ='@{item()}')\n    TRUNCATE table @{concat('dbo.',item())}",
 									"tableOption": "autoCreate",
 									"disableMetricsCollection": false
 								},
