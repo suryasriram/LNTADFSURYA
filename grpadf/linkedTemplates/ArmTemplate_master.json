@@ -15,6 +15,18 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureSQLSupplierLS'"
 		},
+		"FileServer_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'FileServer'"
+		},
+		"FileServer_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "D:\\"
+		},
+		"FileServer_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "shiv"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -47,6 +59,15 @@
 					},
 					"AzureSQLSupplierLS_connectionString": {
 						"value": "[parameters('AzureSQLSupplierLS_connectionString')]"
+					},
+					"FileServer_password": {
+						"value": "[parameters('FileServer_password')]"
+					},
+					"FileServer_properties_typeProperties_host": {
+						"value": "[parameters('FileServer_properties_typeProperties_host')]"
+					},
+					"FileServer_properties_typeProperties_userId": {
+						"value": "[parameters('FileServer_properties_typeProperties_userId')]"
 					}
 				}
 			},

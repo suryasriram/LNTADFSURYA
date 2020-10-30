@@ -10,6 +10,15 @@
 		},
 		"AzureSQLSupplierLS_connectionString": {
 			"value": ""
+		},
+		"FileServer_password": {
+			"value": ""
+		},
+		"FileServer_properties_typeProperties_host": {
+			"value": "D:\\"
+		},
+		"FileServer_properties_typeProperties_userId": {
+			"value": "shiv"
 		}
 	}
 }
