@@ -36,7 +36,9 @@
 								},
 								"sink": {
 									"type": "AzureSqlSink",
-									"tableOption": "autoCreate"
+									"preCopyScript": "delete from ",
+									"tableOption": "autoCreate",
+									"disableMetricsCollection": false
 								},
 								"enableStaging": false,
 								"translator": {
