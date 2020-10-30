@@ -30,13 +30,16 @@
 								"source": {
 									"type": "ExcelSource",
 									"storeSettings": {
-										"type": "AzureBlobStorageReadSettings",
+										"type": "FileServerReadSettings",
 										"recursive": true
 									}
 								},
 								"sink": {
 									"type": "AzureSqlSink",
-									"preCopyScript": "IF EXISTS (SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME ='@{item()}')\n    TRUNCATE table @{concat('dbo.',item())}",
+									"preCopyScript": {
+										"value": "IF EXISTS (SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME ='@{item()}')\n    TRUNCATE table @{concat('dbo.',item())}",
+										"type": "Expression"
+									},
 									"tableOption": "autoCreate",
 									"disableMetricsCollection": false
 								},
@@ -52,10 +55,10 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "SupplierDataset",
+									"referenceName": "ExcelFile",
 									"type": "DatasetReference",
 									"parameters": {
-										"Sheetname": {
+										"sheet": {
 											"value": "@item()",
 											"type": "Expression"
 										}
@@ -65,7 +68,13 @@
 							"outputs": [
 								{
 									"referenceName": "AzureSqlSupplierDS",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"TableName": {
+											"value": "@item()",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}
