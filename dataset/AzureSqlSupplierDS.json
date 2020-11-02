@@ -2,7 +2,7 @@
 	"name": "AzureSqlSupplierDS",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureSQLSupplierLS",
+			"referenceName": "NewSqlDatabase",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
