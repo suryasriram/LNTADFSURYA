@@ -6,7 +6,7 @@
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "CopyBlobToSQL",
+					"referenceName": "CopyExcelToSQL",
 					"type": "PipelineReference"
 				}
 			}
