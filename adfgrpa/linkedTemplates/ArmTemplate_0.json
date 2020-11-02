@@ -263,7 +263,7 @@
 										"sink": {
 											"type": "AzureSqlSink",
 											"preCopyScript": {
-												"value": "IF EXISTS (SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME ='@{item()}')\n    TRUNCATE table @{concat('dbo.',item())}",
+												"value": "IF EXISTS (SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME ='@{item()}')\n    TRUNCATE table @{item()}",
 												"type": "Expression"
 											},
 											"tableOption": "autoCreate",
