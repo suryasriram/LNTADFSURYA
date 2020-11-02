@@ -81,7 +81,7 @@
 										"sink": {
 											"type": "AzureSqlSink",
 											"preCopyScript": {
-												"value": "drop table IF EXISTS [dbo].[Category]\ndrop table IF EXISTS [dbo].[Date]\ndrop table IF EXISTS [dbo].[DefectType]\ndrop table IF EXISTS [dbo].[Defect]\ndrop table IF EXISTS [dbo].[MaterialType]\ndrop table IF EXISTS [dbo].[Metrics]\ndrop table IF EXISTS [dbo].[Vendor]\ndrop table IF EXISTS [dbo].[Plant]\n",
+												"value": "IF EXISTS (SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME ='@{item()}')\n    TRUNCATE table @{concat('dbo.',item())}",
 												"type": "Expression"
 											},
 											"tableOption": "autoCreate",
