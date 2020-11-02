@@ -1,0 +1,84 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adfgrpa"
+		},
+		"AzureBlobSupplierLS_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobSupplierLS'"
+		},
+		"AzureSQLSupplierLS_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSQLSupplierLS'"
+		},
+		"FileServer_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'FileServer'"
+		},
+		"FileServer_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "D:\\"
+		},
+		"FileServer_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "shiv"
+		},
+		"Event Trigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/906623a9-e018-48e8-94a4-34ae5ab6ce54/resourceGroups/GROUPA/providers/Microsoft.Storage/storageAccounts/grpstorageacc"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adfgrpa_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobSupplierLS_connectionString": {
+						"value": "[parameters('AzureBlobSupplierLS_connectionString')]"
+					},
+					"AzureSQLSupplierLS_connectionString": {
+						"value": "[parameters('AzureSQLSupplierLS_connectionString')]"
+					},
+					"FileServer_password": {
+						"value": "[parameters('FileServer_password')]"
+					},
+					"FileServer_properties_typeProperties_host": {
+						"value": "[parameters('FileServer_properties_typeProperties_host')]"
+					},
+					"FileServer_properties_typeProperties_userId": {
+						"value": "[parameters('FileServer_properties_typeProperties_userId')]"
+					},
+					"Event Trigger_properties_typeProperties_scope": {
+						"value": "[parameters('Event Trigger_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

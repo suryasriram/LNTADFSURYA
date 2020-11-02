@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adfgrpa"
+		},
+		"AzureBlobSupplierLS_connectionString": {
+			"value": ""
+		},
+		"AzureSQLSupplierLS_connectionString": {
+			"value": ""
+		},
+		"FileServer_password": {
+			"value": ""
+		},
+		"FileServer_properties_typeProperties_host": {
+			"value": "D:\\"
+		},
+		"FileServer_properties_typeProperties_userId": {
+			"value": "shiv"
+		},
+		"Event Trigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/906623a9-e018-48e8-94a4-34ae5ab6ce54/resourceGroups/GROUPA/providers/Microsoft.Storage/storageAccounts/grpstorageacc"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
