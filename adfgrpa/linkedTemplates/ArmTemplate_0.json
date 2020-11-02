@@ -362,7 +362,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Scheduletrigger')]",
+			"name": "[concat(parameters('factoryName'), '/ScheduleTrigger')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -382,8 +382,8 @@
 					"recurrence": {
 						"frequency": "Minute",
 						"interval": 15,
-						"startTime": "2020-11-02T04:42:00",
-						"timeZone": "India Standard Time"
+						"startTime": "2020-11-02T14:48:00Z",
+						"timeZone": "UTC"
 					}
 				}
 			},
