@@ -81,7 +81,7 @@
 										"sink": {
 											"type": "AzureSqlSink",
 											"preCopyScript": {
-												"value": "IF EXISTS (SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME ='@{item()}')\n    TRUNCATE table @{concat('dbo.',item())}",
+												"value": "drop table IF EXISTS [dbo].[Category]\ndrop table IF EXISTS [dbo].[Date]\ndrop table IF EXISTS [dbo].[DefectType]\ndrop table IF EXISTS [dbo].[Defect]\ndrop table IF EXISTS [dbo].[MaterialType]\ndrop table IF EXISTS [dbo].[Metrics]\ndrop table IF EXISTS [dbo].[Vendor]\ndrop table IF EXISTS [dbo].[Plant]\n",
 												"type": "Expression"
 											},
 											"tableOption": "autoCreate",
@@ -352,16 +352,6 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/SelfHostedIR')]",
-			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "SelfHosted",
-				"typeProperties": {}
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/ScheduleTrigger')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
@@ -390,6 +380,16 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/CopyExcelToSQL')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SelfHostedIR')]",
+			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "SelfHosted",
+				"typeProperties": {}
+			},
+			"dependsOn": []
 		}
 	]
 }
