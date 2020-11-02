@@ -14,6 +14,9 @@
 		"FileServer_password": {
 			"value": ""
 		},
+		"NewSqlDatabase_connectionString": {
+			"value": ""
+		},
 		"FileServer_properties_typeProperties_host": {
 			"value": "D:\\"
 		},

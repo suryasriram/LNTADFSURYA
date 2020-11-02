@@ -19,6 +19,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'FileServer'"
 		},
+		"NewSqlDatabase_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'NewSqlDatabase'"
+		},
 		"FileServer_properties_typeProperties_host": {
 			"type": "string",
 			"defaultValue": "D:\\"
@@ -63,6 +67,9 @@
 					},
 					"AzureSQLSupplierLS_connectionString": {
 						"value": "[parameters('AzureSQLSupplierLS_connectionString')]"
+					},
+					"NewSqlDatabase_connectionString": {
+						"value": "[parameters('NewSqlDatabase_connectionString')]"
 					},
 					"FileServer_password": {
 						"value": "[parameters('FileServer_password')]"

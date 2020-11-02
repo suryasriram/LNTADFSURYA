@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureSQLSupplierLS'"
 		},
+		"NewSqlDatabase_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'NewSqlDatabase'"
+		},
 		"FileServer_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'FileServer'"
@@ -63,6 +67,19 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/NewSqlDatabase')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"connectionString": "[parameters('NewSqlDatabase_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/SelfHostedIR')]",
 			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
 			"apiVersion": "2018-06-01",
@@ -78,7 +95,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "AzureSQLSupplierLS",
+					"referenceName": "NewSqlDatabase",
 					"type": "LinkedServiceReference"
 				},
 				"parameters": {
@@ -98,7 +115,7 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureSQLSupplierLS')]"
+				"[concat(variables('factoryId'), '/linkedServices/NewSqlDatabase')]"
 			]
 		},
 		{
