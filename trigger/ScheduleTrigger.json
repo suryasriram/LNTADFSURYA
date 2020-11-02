@@ -1,0 +1,24 @@
+{
+	"name": "ScheduleTrigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "CopyExcelToSQL",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 15,
+				"startTime": "2020-11-02T14:48:00Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}
